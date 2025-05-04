@@ -38,6 +38,11 @@ public class Node<T> {
     return item;
   }
 
+  public void add(T item) {
+    Node<T> lastNode = getLastNode();
+    lastNode.next = new Node<>(item);
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();

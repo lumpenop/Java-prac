@@ -5,7 +5,7 @@ public class Main {
   public static void main(String[] args) {
     Node<String> head = new Node<>("a");
     head.next = new Node<>("b");
-    head.next.next = new Node<>("c");
+    head.add("c");
 
     System.out.println(head.toString());
 
