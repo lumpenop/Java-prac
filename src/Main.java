@@ -8,5 +8,8 @@ public class Main {
     head.next.next = new Node("c");
 
     System.out.println(head.toString());
+
+    Node last = head.getLastNode();
+    System.out.println("last: " + last.toString());
   }
 }

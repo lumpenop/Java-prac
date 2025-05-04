@@ -7,6 +7,14 @@ public class Node {
     this.item = item;
   }
 
+  public Node getLastNode() {
+    Node last = this;
+    while (last.next != null) {
+      last = last.next;
+    }
+    return last;
+  }
+
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
@@ -16,7 +24,7 @@ public class Node {
       sb.append(current.item);
 
       if (current.next != null) {
-        sb.append("=>");
+        sb.append(" => ");
       }
       current = current.next;
     }
