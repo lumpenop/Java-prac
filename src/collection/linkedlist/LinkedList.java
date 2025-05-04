@@ -1,14 +1,15 @@
-public class Node<T> {
+package collection.linkedlist;
 
-  T item;
-  Node<T> next;
+public class LinkedList<T> {
 
-  public Node(T item) {
-    this.item = item;
+  Node<T> head;
+
+  public LinkedList(T item) {
+    head = new Node<>(item);
   }
 
   public Node<T> getLastNode() {
-    Node<T> node = this;
+    Node<T> node = head;
     while (node.next != null) {
       node = node.next;
     }
@@ -17,7 +18,7 @@ public class Node<T> {
 
   public int size() {
     int size = 0;
-    Node<T> node = this;
+    Node<T> node = head;
     while (node != null) {
       size++;
       node = node.next;
@@ -26,7 +27,7 @@ public class Node<T> {
   }
 
   public T getNode(int index) {
-    Node<T> node = this;
+    Node<T> node = head;
     int i = 0;
     while (node != null) {
       if (i == index) {
@@ -35,7 +36,7 @@ public class Node<T> {
       node = node.next;
       i++;
     }
-    return item;
+    return null;
   }
 
   public void add(T item) {
@@ -46,7 +47,7 @@ public class Node<T> {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    Node<T> current = this;
+    Node<T> current = head;
     sb.append("[");
     while (current != null) {
       sb.append(current.item);
