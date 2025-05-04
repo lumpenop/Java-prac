@@ -3,13 +3,15 @@
 public class Main {
 
   public static void main(String[] args) {
-    Node head = new Node("a");
-    head.next = new Node("b");
-    head.next.next = new Node("c");
+    Node<String> head = new Node<>("a");
+    head.next = new Node<>("b");
+    head.next.next = new Node<>("c");
 
     System.out.println(head.toString());
 
-    Node last = head.getLastNode();
+    Node<String> last = head.getLastNode();
     System.out.println("last: " + last.toString());
+    System.out.println("size: " + head.size());
+    System.out.println("index 2 item: " + head.getNode(2));
   }
 }
