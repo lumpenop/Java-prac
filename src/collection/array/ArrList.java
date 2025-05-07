@@ -16,13 +16,21 @@ public class ArrList<T> {
   public ArrList(T[] items) {
     this.items = items;
     this.size = items.length;
+    increaseSize();
   }
+
+  public void increaseSize () {
+    if (size == items.length) {
+      size = (int) Math.floor(size * 1.5 + 1);
+      items = Arrays.copyOf(items, size);
+    }
+  }
+
 
   public void add(T item) {
 
     if (size == items.length) {
-      size = (int) Math.floor(size * 1.5 + 1);
-      items = Arrays.copyOf(items, size);
+      this.increaseSize();
     }
     items[length] = item;
     length++;

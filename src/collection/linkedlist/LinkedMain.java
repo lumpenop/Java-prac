@@ -5,7 +5,7 @@ public class LinkedMain {
   public static void main(String[] args) {
     LinkedList<String> linkedList = new LinkedList<>("a");
 
-    linkedList.head.next = new Node<>("b");
+    linkedList.add("b");
     linkedList.add("c");
 
     System.out.println(linkedList.toString());
