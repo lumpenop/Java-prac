@@ -1,7 +1,9 @@
 package collection.linkedlist;
 
-@SuppressWarnings("unchecked")
-public class LinkedList<T> {
+
+import collection.list.MyList;
+
+public class LinkedList<T> implements MyList<T> {
 
   private Node<T> head = null;
   private int size = 0;
@@ -22,24 +24,31 @@ public class LinkedList<T> {
     return node;
   }
 
+
+  @Override
   public int size() {
     return size;
   }
 
+
+  @Override
   public T set(int index, T element) {
 
-    Node<T> x =  getNode(index);
+    Node<T> x = getNode(index);
     T oldValue = x.item;
     x.item = element;
 
     return oldValue;
   }
 
+
+  @Override
   public T get(int index) {
     Node<T> node = getNode(index);
     return node.item;
   }
 
+  @Override
   public int indexOf(T item) {
     int index = 0;
     while (index < size()) {
@@ -51,6 +60,7 @@ public class LinkedList<T> {
     return -1;
   }
 
+  @Override
   public void remove(int index) {
     if (index < 0 || index >= size) {
       return;
@@ -79,6 +89,7 @@ public class LinkedList<T> {
     return null;
   }
 
+  @Override
   public void add(T item) {
     if (head == null) {
       head = new Node<>(item);
@@ -90,6 +101,7 @@ public class LinkedList<T> {
     size++;
   }
 
+  @Override
   public void add(int index, T item) {
     if (index < 0 || index > size) {
       return;

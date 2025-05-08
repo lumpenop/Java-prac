@@ -12,8 +12,8 @@ public interface MyList<T> {
 
   T set(int index, T item);
 
-  T remove(int index);
+  void remove(int index);
 
   int indexOf(T item);
-  
+
 }
