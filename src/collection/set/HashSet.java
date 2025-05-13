@@ -1,14 +1,17 @@
 package collection.set;
 
 
+import java.util.Arrays;
+
 @SuppressWarnings("unchecked")
 public class HashSet<T> {
 
   private T[] items;
-  private int size;
+  private int capacity = 10;
+  private int size = 0;
 
   public HashSet() {
-    items = (T[]) new Object[10];
+    items = (T[]) new Object[capacity];
   }
 
   public HashSet(T[] items) {
@@ -19,9 +22,10 @@ public class HashSet<T> {
     if (contains(item)) {
       return;
     }
-    if (size == items.length) {
-      T[] newItems = (T[]) new Object[items.length * 2];
-      System.arraycopy(items, 0, newItems, 0, items.length);
+    if (capacity == items.length) {
+      capacity = items.length * 2;
+      T[] newItems = (T[]) new Object[capacity];
+      System.arraycopy(items, 0, newItems, 0, size);
       items = newItems;
     }
     items[size++] = item;
@@ -43,4 +47,11 @@ public class HashSet<T> {
     }
   }
 
+  @Override
+  public String toString() {
+    return "HashSet{" +
+        "items=" + Arrays.toString(Arrays.copyOf(items, size)) +
+        ", size=" + size +
+        '}';
+  }
 }

@@ -6,6 +6,7 @@ public class SetMain {
     HashSet<String> set = new HashSet<>();
     set.add("A");
     set.add("A");
+    set.add("B");
     set.print();
   }
 
